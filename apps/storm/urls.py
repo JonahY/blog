@@ -14,10 +14,10 @@ urlpatterns = [
     url(r'^link/$', LinkView, name='link'),     # 申请友情链接
     url(r'^category/message/$', MessageView, name='message'),
     url(r'^category/about/$', AboutView, name='about'),
-    url(r'^category/donate/$', DonateView, name='donate'),
-    url(r'^category/exchange/$', ExchangeView, name='exchange'),
-    url(r'^category/project/$', ProjectView, name='project'),
-    url(r'^category/question/$', QuestionView, name='question'),
+    # url(r'^category/donate/$', DonateView, name='donate'),
+    # url(r'^category/exchange/$', ExchangeView, name='exchange'),
+    # url(r'^category/project/$', ProjectView, name='project'),
+    # url(r'^category/question/$', QuestionView, name='question'),
     # 分类页面
     url(r'^category/(?P<bigslug>.*?)/(?P<slug>.*?)', IndexView.as_view(template_name='content.html'), name='category'),
     # 归档页面
