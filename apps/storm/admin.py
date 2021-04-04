@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, Tag, Category, Carousel, Keyword, FriendLink, BigCategory
+from .models import Article, Tag, Category, Carousel, Keyword, FriendLink, BigCategory, Activate
 
 
 @admin.register(Article)
@@ -53,6 +53,11 @@ admin.site.site_title = '博客后台管理'
 @admin.register(Carousel)
 class CarouselAdmin(admin.ModelAdmin):
     list_display = ('number', 'title', 'content', 'img_url', 'url')
+
+
+@admin.register(Activate)
+class ActivateAdmin(admin.ModelAdmin):
+    list_display = ('text', 'is_active', 'add_date')
 
 
 @admin.register(Keyword)

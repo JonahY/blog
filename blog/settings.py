@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'comment',  # 评论
     'haystack',  # 全文搜索应用 这个要放在其他应用之前
     'rest_framework',  # API
+    'DjangoUeditor',
 ]
 
 MIDDLEWARE = [
@@ -141,6 +142,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
 
 # 媒体文件收集
 MEDIA_URL = "/media/"  # 媒体文件别名(相对路径) 和 绝对路径
