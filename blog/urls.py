@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 
+import django
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.static import static
@@ -50,7 +51,10 @@ urlpatterns = [
                   url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
                   # 网站地图
                   url(r'^feed/$', AllArticleRssFeed(), name='rss'),  # rss订阅
-                  url('ueditor/', include('DjangoUeditor.urls')),  # 添加DjangoUeditor的URL
+                  url(r'^ckeditor/', include('ckeditor_uploader.urls')),  # 添加ckeditor作为文本编辑器
+                  # debug
+                  url(r'^static/(?P<path>.*)$', django.views.static.serve,
+                  {'document_root': settings.STATIC_ROOT}, name='static'),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # 加入这个才能显示media文件
 
 if settings.API_FLAG:

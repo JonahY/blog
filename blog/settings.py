@@ -23,12 +23,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'n2gm-j+x1cb^&n1wle7em-%8abvfa%_la4q64nxlry5dq6lg^@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', '39.105.76.52', 'jonahyoo.com']
+# ALLOWED_HOSTS = ['*']
+
+# 避免浏览器自作聪明推断内容类型（避免跨站脚本攻击风险）
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# 避免跨站脚本攻击
+SECURE_BROWSER_XSS_FILTER = True
+
+# 防止点击劫持攻击手段（不允许使用<iframe>标签进行加载）
+X_FRAME_OPTIONS = 'DENY'
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,7 +52,8 @@ INSTALLED_APPS = [
     'comment',  # 评论
     'haystack',  # 全文搜索应用 这个要放在其他应用之前
     'rest_framework',  # API
-    'DjangoUeditor',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -69,7 +79,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
                 'storm.context_processors.settings_info',  # 自定义上下文管理器
             ],
             'libraries':{
@@ -92,13 +101,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': '127.0.0.1',
         'PORT': '3306',
-        'USER': 'root',
+        'USER': 'jonah',
         'PASSWORD': 'kfendouba',
         'NAME': 'blog',
         # 避免映射数据库时出现警告
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
+            'charset': 'utf8',
         },
     }
 }
@@ -139,16 +148,18 @@ USE_TZ = False
 
 # 静态文件收集
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
 
 # 媒体文件收集
 MEDIA_URL = "/media/"  # 媒体文件别名(相对路径) 和 绝对路径
 MEDIA_ROOT = (
     os.path.join(BASE_DIR, 'media')
 )
+
+CKEDITOR_UPLOAD_PATH = 'upimg/'
 
 # 统一分页设置
 BASE_PAGE_BY = 4
@@ -174,3 +185,22 @@ SITE_KEYWORDS = "JonahYoo,技术,博客,Python,ML,DL,Linux"
 SITE_END_TITLE = "聚会阅读器"
 
 API_FLAG = True
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': (
+			['div','Source','-','Save','NewPage','Preview','-','Templates'],
+			['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print','SpellChecker','Scayt'],
+			['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+			['Form','Checkbox','Radio','TextField','Textarea','Select','Button', 'ImageButton','HiddenField'],
+			['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+			['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+			['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+			['Link','Unlink','Anchor'],
+			['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+			['Styles','Format','Font','FontSize'],
+			['TextColor','BGColor'],
+			['Maximize','ShowBlocks','-','About', 'pbckcode'],
+		),
+	}
+}
