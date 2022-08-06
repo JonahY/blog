@@ -3478,7 +3478,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
     opacity: .9;
     clear: both;
     max-width: 1226px;
-    left: 659px;
+    margin: 0 auto;
     position: relative;
 }
 
