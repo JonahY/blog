@@ -3476,7 +3476,10 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
     height: 52px;
     background-color: #4a4a4a;
     opacity: .9;
-    clear: both
+    clear: both;
+    max-width: 1226px;
+    left: 659px;
+    position: relative;
 }
 
 .navbar:after, .navbar:before {
@@ -3495,7 +3498,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 }
 
 .container-inner {
-    max-width: 1226px;
+    max-width: 2546px;
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -3788,7 +3791,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 .yusi-mono {
     letter-spacing: -2px;
     position: relative;
-    color: #fff;
+    color: #ccff00;
     font-size: 54px;
     text-shadow: 0 0 1px rgba(94, 255, 216, .8);
     margin: 0;
@@ -3803,7 +3806,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 
 .yusi-bloger {
     position: relative;
-    color: #fff;
+    color: #ccff00;
     font-weight: 400;
     font-size: 24px;
     text-shadow: 0 0 1px rgba(94, 255, 216, .8);

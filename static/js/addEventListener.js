@@ -1,6 +1,6 @@
 // 要操作的元素
-const container=document.querySelector('.container-top');
-const imgs=document.querySelectorAll('.container-top img');
+const container=document.querySelector('body');
+const imgs=document.querySelectorAll('.container-inner img');
 
 // 为容器绑定鼠标移动事件
 container.addEventListener('mousemove',function(e){
