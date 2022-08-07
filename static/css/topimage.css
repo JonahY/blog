@@ -24,11 +24,13 @@
 }
 #plane{
     color: #ccff00;
-    font-size: 16px;
+    font-size: 12px;
     /* 绝对定位 */
     position: absolute;
     /* 弹性布局 水平+垂直居中 */
     display: flex;
     justify-content: center;
     align-items: center;
+    /*让鼠标事件失效（链接、点击等事件）*/
+    pointer-events: none;
 }
