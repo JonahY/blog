@@ -160,6 +160,9 @@
     <script type="text/javascript" name="baidu-tc-cerfication" data-appid="5411405" src="{% static 'js/lightapp.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     <script type="text/javascript"></script>
+
+    <!-- 引入鼠标跟随小飞机字体图标 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body class="home blog">
@@ -244,6 +247,12 @@
                 </ul>
             </div>
             <!--导航条结束-->
+
+            <!--鼠标跟随-->
+            <div id="plane">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </div>
+            <script src="{% static 'js/planefollow.js' %}"></script>
         </div>
     </header>
 
